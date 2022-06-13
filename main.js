@@ -332,7 +332,7 @@ function colorCountry(e) {
 
 function blendColor(elementColor, color) {
     elementColor = elementColor.replaceAll(', ', ',')
-    if (elementColor == COLORS["empty"] || color == COLORS["grey"]){
+    if (elementColor == COLORS["empty"] || elementColor == COLORS["grey"] || color == COLORS["grey"]){
         elementColor = color
     }
     else if (elementColor == COLORS["red"] && color != COLORS["red"]){
