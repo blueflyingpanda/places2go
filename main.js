@@ -218,6 +218,7 @@ const COUNTRIES = ["Afghanistan",
 ]
 
 const KEYS = {
+    "Digit0": "grey",
     "KeyR": "red",
     "KeyG": "green",
     "KeyB": "blue"
@@ -225,6 +226,7 @@ const KEYS = {
 
 const COLORS = {
     "empty": "",
+    "grey": "rgb(204,204,204)",
     "red": "rgb(255,0,0)",
     "green": "rgb(0,255,0)",
     "blue": "rgb(0,0,255)",
@@ -330,7 +332,7 @@ function colorCountry(e) {
 
 function blendColor(elementColor, color) {
     elementColor = elementColor.replaceAll(', ', ',')
-    if (elementColor == COLORS["empty"]){
+    if (elementColor == COLORS["empty"] || color == COLORS["grey"]){
         elementColor = color
     }
     else if (elementColor == COLORS["red"] && color != COLORS["red"]){
