@@ -102,3 +102,13 @@ svg path:hover {
     margin-top: 15vh;
   }
 
+.docs {
+    position: absolute;
+    left: 80%;
+}
+
+#legend {
+    position: absolute;
+    left: 10%;
+    top: 80%;
+}

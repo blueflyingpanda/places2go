@@ -418,3 +418,84 @@ function getCountryName(element) {
     }
     return searchedCountry
 }
+
+let friend1 = prompt("Привет! Это интерактивная карта ГДЕ МЫ БЫЛИ. На ней ты можешь отмечать страны, в которых были ты и твои друзья. Введи имя первого друга. Он будет отмечен красным цветом. Чтобы указать его на карте наведи курсор на нужную страну и нажми клавишу r. Если некого отметить, оставь поле пустым.").trim();
+let friend2 = prompt("Введи имя первого друга. Он будет отмечен зеленым цветом. Чтобы указать его на карте наведи курсор на нужную страну и нажми клавишу g. Если некого отметить, оставь поле пустым.").trim();
+let friend3 = prompt("Введи имя последнего друга. Он будет отмечен синим цветом. Чтобы указать его на карте наведи курсор на нужную страну и нажми клавишу b. Если некого отметить, оставь поле пустым.").trim();
+
+$(document).ready(function(){
+    if (friend1.length > 20) {
+        friend1 = friend1.slice(0, 20) + "..."
+    }
+    if (friend2.length > 20) {
+        friend2 = friend2.slice(0, 20) + "..."
+    }
+    if (friend3.length > 20) {
+        friend3 = friend3.slice(0, 20) + "..."
+    }
+
+    if (friend1 == friend2 && friend2 == friend3) {
+        friend1 += '1'
+        friend2 += '2'
+        friend3 += '3'
+    }
+    else if (friend1 == friend2) {
+        friend1 += '1'
+        friend2 += '2'
+    }
+    else if (friend2 == friend3) {
+        friend2 += '1'
+        friend3 += '2'
+    }
+    else if (friend1 == friend3) {
+        friend1 += '1'
+        friend3 += '2'
+    }
+
+    legend = document.getElementById("legend")
+
+    if (friend1 != "") {
+        var p = document.createElement('p');
+        p.style.color = 'red'
+        p.style.fontWeight = 900
+        p.textContent = friend1
+        legend.appendChild(p)
+    }
+    if (friend2 != "") {
+        var p = document.createElement('p');
+        p.style.color = 'green'
+        p.style.fontWeight = 900
+        p.textContent = friend2
+        legend.appendChild(p)
+    }
+    if (friend3 != "") {
+        var p = document.createElement('p');
+        p.style.color = 'blue'
+        p.style.fontWeight = 900
+        p.textContent = friend3
+        legend.appendChild(p)
+    }
+    if (friend1 != "" && friend2 != "") {
+        var p = document.createElement('p');
+        p.style.color = "rgb(127, 127, 0)";
+        p.style.fontWeight = 900
+        p.textContent = friend1 + " + " + friend3;
+        legend.appendChild(p)
+    }
+
+    if (friend2 != "" && friend3 != "") {
+        var p = document.createElement('p');
+        p.style.color = "rgb(0, 127, 127)";
+        p.style.fontWeight = 900
+        p.textContent = friend2 + " + " + friend3;
+        legend.appendChild(p)
+    }
+
+    if (friend1 != "" && friend3 != "") {
+        var p = document.createElement('p');
+        p.style.color = "rgb(127, 0, 127)";
+        p.style.fontWeight = 900
+        p.textContent = friend1 + " + " + friend3;
+        legend.appendChild(p)
+    }
+})
