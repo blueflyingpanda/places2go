@@ -479,7 +479,7 @@ $(document).ready(function(){
         var p = document.createElement('p');
         p.style.color = "rgb(127, 127, 0)";
         p.style.fontWeight = 900
-        p.textContent = friend1 + " + " + friend3;
+        p.textContent = friend1 + " + " + friend2;
         legend.appendChild(p)
     }
 
